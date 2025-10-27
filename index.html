@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Should You Keep This Hobby? 2-Minute Quiz</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M175VEXPWL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M175VEXPWL');
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .section-padding {
+            padding: 3rem 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 4rem 2rem;
+            }
+        }
+        .container-max {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        button.cta-primary {
+            background-color: #667eea;
+            transition: background-color 0.3s ease;
+        }
+        button.cta-primary:hover {
+            background-color: #5568d3;
+        }
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 1000;
+        }
+        iframe {
+            max-width: 100%;
+            border: none !important;
+        }
+        .quiz-section {
+            scroll-margin-top: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header + Hero -->
+    <header class="hero-section text-white section-padding">
+        <div class="container-max text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Should You Keep This Hobby?</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-8">2-Minute Quiz → Clear Answer</h2>
+            <p class="text-lg md:text-xl mb-8 opacity-95">Not a judgment. A framework.</p>
+            <button class="cta-primary text-white font-bold py-3 px-8 rounded-lg text-lg hover:shadow-lg transition-all" onclick="scrollToQuiz()">
+                Start Quiz
+            </button>
+        </div>
+    </header>
+
+    <!-- Hook Section -->
+    <section class="section-padding bg-gray-50">
+        <div class="container-max text-center">
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Stuck on whether to keep investing? Wasted money? Frustrated with slow progress? 
+                <strong>2 minutes. 7 questions. Permission to decide.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="section-padding">
+        <div class="container-max">
+            <h2 class="text-2xl font-bold mb-8 text-center">The Problem</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="text-2xl font-bold text-red-500 flex-shrink-0">•</div>
+                    <p class="text-lg text-gray-700">Invested $300+, feel stuck, can't decide quit or commit</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-2xl font-bold text-red-500 flex-shrink-0">•</div>
+                    <p class="text-lg text-gray-700">Guilt about 'wasting time' competing with wanting to keep going</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-2xl font-bold text-red-500 flex-shrink-0">•</div>
+                    <p class="text-lg text-gray-700">No framework for the decision—just gut feeling + shame</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="section-padding bg-gray-50">
+        <div class="container-max">
+            <h2 class="text-2xl font-bold mb-6 text-center">The Solution</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                7-question decision framework that scores your hobby on: investment, enjoyment, progress, and community value. 
+                <strong>Output: Clear recommendation (Keep / Pause / Quit) + permission script for your choice.</strong> 
+                No more paralysis. Just clarity.
+            </p>
+        </div>
+    </section>
+
+    <!-- Embedded Quiz Form -->
+    <section class="section-padding quiz-section" id="quizSection">
+        <div class="container-max">
+            <h2 class="text-2xl font-bold mb-6 text-center">Take the Quiz</h2>
+            <div class="bg-white rounded-lg shadow-sm p-0 md:p-2">
+                <iframe id="quizForm" src="https://docs.google.com/forms/d/e/1FAIpQLSeDsx_JC7FjBAPx3s-zXGUX5dy68rfQ6RFUUyhuCzqfD-Hl1w/viewform?embedded=true" width="100%" height="2357" frameborder="0" marginheight="0" marginwidth="0" style="border: none;">Loading…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Complete Fallback Tracker -->
+    <section class="section-padding" id="postQuizMarker" style="display: none;">
+        <div class="container-max">
+            <p class="text-gray-500 text-sm">Quiz completed.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding bg-gray-50">
+        <div class="container-max">
+            <h2 class="text-2xl font-bold mb-8 text-center">FAQ</h2>
+            <div class="space-y-6">
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <h3 class="text-lg font-bold mb-2">What if I disagree with the quiz output?</h3>
+                    <p class="text-gray-700">Use it as a starting point, not gospel. The quiz is a framework to clarify your thinking, not a mandate. Trust your gut if it conflicts.</p>
+                </div>
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <h3 class="text-lg font-bold mb-2">This seems too simple for a big decision.</h3>
+                    <p class="text-gray-700">Simplicity is the point. Overcomplexity = paralysis. Most hobby decisions don't need 50-page analysis. They need clarity and permission.</p>
+                </div>
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <h3 class="text-lg font-bold mb-2">Will this help me actually commit?</h3>
+                    <p class="text-gray-700">Yes. Permission (scripts) + clarity removes shame. Once you know your decision is sound, you stop sabotaging yourself with guilt.</p>
+                </div>
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <h3 class="text-lg font-bold mb-2">What are the permission scripts?</h3>
+                    <p class="text-gray-700">Pre-written paragraphs you can use to explain your decision to yourself and others. Keep: "This is worth my time because..." Quit: "I can let this go guilt-free because..." Pause: "I'm taking a break to..."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <footer class="section-padding bg-gray-900 text-white">
+        <div class="container-max">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="text-center md:text-left">
+                    <p class="mb-4 text-gray-300">Get your result first.</p>
+                    <a href="#quizSection" onclick="scrollToQuiz(); return false;" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                        Take the Free Quiz
+                    </a>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="mb-4 text-gray-300">Ready for permission scripts?</p>
+                    <button class="cta-primary text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition-all" onclick="handleStripeCTA('footer')">
+                        Get Permission Scripts ($12)
+                    </button>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 text-sm">
+                <p>Quiz results include a sample permission script. Bundle includes 3 full scripts (Keep, Quit, Pause).</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GA Event Tracking & Scroll Scripts -->
+    <script>
+        // Stripe CTA Click Tracking
+        function handleStripeCTA(location) {
+            gtag('event', 'stripe_cta_click', {
+                'cta_location': location,
+                'product': 'hobby_permission_scripts_bundle',
+                'price': '$12'
+            });
+            window.location.href = 'https://buy.stripe.com/dRmfZjd3YbBNdBiaNM0ZW01';
+        }
+
+        // Smooth scroll to quiz
+        function scrollToQuiz() {
+            document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth' });
+            gtag('event', 'quiz_start', {
+                'engagement_type': 'cta_click',
+                'product': 'hobby_decision_quiz'
+            });
+        }
+
+        // Intersection Observer for Quiz Start Detection (when form becomes visible)
+        const quizObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !window.quizStarted) {
+                    window.quizStarted = true;
+                    gtag('event', 'quiz_start', {
+                        'engagement_type': 'scroll_to_form',
+                        'product': 'hobby_decision_quiz'
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        quizObserver.observe(document.getElementById('quizSection'));
+
+        // Scroll Depth Tracking with Debounce
+        let scrollEvents = { scroll_50: false, scroll_75: false, scroll_100: false };
+        let scrollTimeout;
+        let quizCompleteTracked = false;
+
+        function debounce(func, wait) {
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(scrollTimeout);
+                    func(...args);
+                };
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(later, wait);
+            };
+        }
+
+        function handleScroll() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.scrollY;
+            const scrollPercent = (scrollTop + windowHeight) / documentHeight;
+            const quizFormRect = document.getElementById('quizSection').getBoundingClientRect();
+            const quizBottomReached = quizFormRect.bottom < 0;
+
+            // Scroll depth tracking
+            if (scrollPercent >= 0.5 && !scrollEvents.scroll_50) {
+                scrollEvents.scroll_50 = true;
+                gtag('event', 'scroll_50', {
+                    'page_title': document.title,
+                    'scroll_depth': '50%'
+                });
+            }
+
+            if (scrollPercent >= 0.75 && !scrollEvents.scroll_75) {
+                scrollEvents.scroll_75 = true;
+                gtag('event', 'scroll_75', {
+                    'page_title': document.title,
+                    'scroll_depth': '75%'
+                });
+            }
+
+            if (scrollPercent >= 0.95 && !scrollEvents.scroll_100) {
+                scrollEvents.scroll_100 = true;
+                gtag('event', 'scroll_100', {
+                    'page_title': document.title,
+                    'scroll_depth': '100%'
+                });
+            }
+
+            // Fallback quiz complete detection: if user scrolls past quiz form, assume submission
+            if (quizBottomReached && !quizCompleteTracked) {
+                quizCompleteTracked = true;
+                gtag('event', 'quiz_complete', {
+                    'engagement_type': 'scroll_past_form',
+                    'product': 'hobby_decision_quiz',
+                    'note': 'Inferred from scroll behavior'
+                });
+            }
+
+            // Update scroll progress bar
+            const scrollProgress = document.getElementById('scrollProgress');
+            scrollProgress.style.width = (Math.min(scrollPercent, 1) * 100) + '%';
+        }
+
+        const debouncedScroll = debounce(handleScroll, 100);
+        window.addEventListener('scroll', debouncedScroll, { passive: true });
+
+        // Initial scroll check on page load
+        window.addEventListener('load', handleScroll);
+
+        // Track page visibility for engagement (optional: detect if user leaves page without scrolling past quiz)
+        window.addEventListener('beforeunload', function() {
+            if (!quizCompleteTracked && window.quizStarted) {
+                gtag('event', 'quiz_abandoned', {
+                    'product': 'hobby_decision_quiz'
+                });
+            }
+        });
+    </script>
+    
+    <!-- Auto-scroll to form confirmation on submission -->
+    <script>
+    // Monitor for form submission and scroll to confirmation
+    const quizForm = document.getElementById('quizForm');
+    
+    if (quizForm) {
+        // Check every 500ms if form has been submitted
+        const submissionCheckInterval = setInterval(function() {
+        // Look for the confirmation message (Google Forms adds this after submission)
+        const confirmationMessage = document.querySelector('iframe')?.contentWindow?.document?.querySelector('[role="status"]');
+        
+        // Alternative: Check if the form has changed (submitted state)
+        // Google Forms hides the form and shows confirmation
+        const formContainer = quizForm.parentElement;
+        const isSubmitted = formContainer.querySelector('.ss-form-container') ? false : true;
+        
+        if (isSubmitted || confirmationMessage) {
+            // Scroll to quiz section and show confirmation message
+            const quizSection = document.getElementById('quizSection');
+            quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Fire GA event
+            gtag('event', 'quiz_complete', {
+            'engagement_type': 'form_submission',
+            'product': 'hobby_decision_quiz'
+            });
+            
+            // Clear interval
+            clearInterval(submissionCheckInterval);
+            
+            // Stop checking after 2 seconds
+            setTimeout(function() {
+            clearInterval(submissionCheckInterval);
+            }, 2000);
+        }
+        }, 500);
+        
+        // Safety: stop checking after 10 seconds
+        setTimeout(function() {
+        clearInterval(submissionCheckInterval);
+        }, 10000);
+    }
+    </script>
+</body>
+</html>
