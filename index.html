@@ -293,49 +293,5 @@
             }
         });
     </script>
-    
-    <!-- Auto-scroll to form confirmation on submission -->
-    <script>
-    // Monitor for form submission and scroll to confirmation
-    const quizForm = document.getElementById('quizForm');
-    
-    if (quizForm) {
-        // Check every 500ms if form has been submitted
-        const submissionCheckInterval = setInterval(function() {
-        // Look for the confirmation message (Google Forms adds this after submission)
-        const confirmationMessage = document.querySelector('iframe')?.contentWindow?.document?.querySelector('[role="status"]');
-        
-        // Alternative: Check if the form has changed (submitted state)
-        // Google Forms hides the form and shows confirmation
-        const formContainer = quizForm.parentElement;
-        const isSubmitted = formContainer.querySelector('.ss-form-container') ? false : true;
-        
-        if (isSubmitted || confirmationMessage) {
-            // Scroll to quiz section and show confirmation message
-            const quizSection = document.getElementById('quizSection');
-            quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            // Fire GA event
-            gtag('event', 'quiz_complete', {
-            'engagement_type': 'form_submission',
-            'product': 'hobby_decision_quiz'
-            });
-            
-            // Clear interval
-            clearInterval(submissionCheckInterval);
-            
-            // Stop checking after 2 seconds
-            setTimeout(function() {
-            clearInterval(submissionCheckInterval);
-            }, 2000);
-        }
-        }, 500);
-        
-        // Safety: stop checking after 10 seconds
-        setTimeout(function() {
-        clearInterval(submissionCheckInterval);
-        }, 10000);
-    }
-    </script>
 </body>
 </html>
